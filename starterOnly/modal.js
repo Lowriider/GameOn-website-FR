@@ -1,3 +1,6 @@
+
+// Responsive navbar //
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -7,17 +10,30 @@ function editNav() {
   }
 }
 
-// DOM Elements
+// DOM Elements // 
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const closeForm = document.querySelector(".close");
 
-// launch modal event
+
+// Event listener // 
+closeForm.addEventListener('click', closeModal);
+
+
+// launch modal event // 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// launch modal form
+// launch modal form // 
 function launchModal() {
   modalbg.style.display = "block";
 }
+
+// Close modal form //
+
+function closeModal() {
+  modalbg.style.display = "none";
+}
+
 
 
