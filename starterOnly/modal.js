@@ -1,5 +1,5 @@
 
-// Responsive navbar //
+// Responsive navbar function //
 
 function editNav() {
   var x = document.getElementById("myTopnav");
