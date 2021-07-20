@@ -48,7 +48,7 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Submit form + check //
+//alert champs invalides //
 function formNotOK() {
   alert("verifiez les champs")
 }
@@ -58,14 +58,14 @@ function checkFormOK() {
 
 
 }
-
+// surligne le champs invalide //
 function highlightField(field, erreur) {
   if (erreur) {
     field.style.backgroundColor = "#fba";
   } else
     field.style.backgroundColor = "";
 }
-
+// check le champ nom //
 function checkLast(field) {
   console.log('go1')
   if (field.value.length < 2 || !regLetters.test(field.value)) {
@@ -76,7 +76,7 @@ function checkLast(field) {
     return true;
   }
 }
-
+// check le champ prénom // 
 function checkFirst(field) {
   if (field.value.length < 2 || !regLetters.test(field.value)) {
     highlightField(field, true);
@@ -86,7 +86,7 @@ function checkFirst(field) {
     return true;
   }
 }
-
+// check le champ date de naissance //
 function checkBirthdate(field) {
   if (!regBirth.test(field.value)) {
     highlightField(field, true);
@@ -96,7 +96,7 @@ function checkBirthdate(field) {
     return true;
   }
 }
-
+// check le champ mail //
 function checkMail(field) {
   if (field.value.length < 2 || !regmail.test(field.value)) {
     highlightField(field, true);
@@ -106,7 +106,7 @@ function checkMail(field) {
     return true
   }
 }
-
+ // check le champ question //
 function checkTournament(field) {
   if (field.value.length < 1 || field.value > 100 || !regNumbers.test(field.value)) {
     highlightField(field, true);
@@ -116,7 +116,7 @@ function checkTournament(field) {
     return true
   }
 }
-
+// check le bouton radio coché //
 function checkCity() {
 
 }
