@@ -158,7 +158,7 @@ function checkCity() {
   } else
     return true;
 }
-
+// check term of use //
 function checkTermOfUse() {
   if (checkboxTOU.checked) {
     return true;
@@ -166,6 +166,7 @@ function checkTermOfUse() {
     return false;
 }
 
+// check if fields are ok //
 function checkAllFields() {
   if (firstNameOk && lastNameOk && emailOk && birthdayOk && tournamentOk && checkCity() && checkTermOfUse())
     return true;
@@ -191,6 +192,8 @@ function checkAllFields() {
     return false;
   }
 }
+
+// submit form + message //
 
 function submitForm(e) {
   e.preventDefault();
