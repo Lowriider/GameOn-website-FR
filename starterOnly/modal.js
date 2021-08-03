@@ -210,10 +210,10 @@ function submitForm(e) {
     birthdayOk = false;
     tournamentOk = false;
     cityBtnChecked = false;
+  } else if (!checkTermOfUse()) {
+    alert("vous devez accepter les CGU avant d'envoyer le formulaire");
   } else {
-    if (checkTermOfUse() === false) {
-      alert("vous devez accepter les CGU avant d'envoyer le formulaire");
-    }
     formNotOK();
   }
 }
+console.log("test");
