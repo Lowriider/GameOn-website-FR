@@ -216,4 +216,3 @@ function submitForm(e) {
     formNotOK();
   }
 }
-console.log("test");
