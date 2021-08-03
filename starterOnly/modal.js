@@ -193,6 +193,7 @@ function checkAllFields() {
     return false;
   }
 }
+/* reset all var to false */
 function reset() {
   firstNameOk = false;
     lastNameOk = false;
