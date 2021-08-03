@@ -167,6 +167,7 @@ function checkTermOfUse() {
 }
 
 // check if fields are ok //
+
 function checkAllFields() {
   if (firstNameOk && lastNameOk && emailOk && birthdayOk && tournamentOk && checkCity() && checkTermOfUse())
     return true;
@@ -192,7 +193,14 @@ function checkAllFields() {
     return false;
   }
 }
-
+function reset() {
+  firstNameOk = false;
+    lastNameOk = false;
+    emailOk = false;
+    birthdayOk = false;
+    tournamentOk = false;
+    cityBtnChecked = false;
+}
 // submit form + message //
 
 function submitForm(e) {
@@ -204,12 +212,7 @@ function submitForm(e) {
   if (checkAllFields()) {
     formOK();
     closeModal();
-    firstNameOk = false;
-    lastNameOk = false;
-    emailOk = false;
-    birthdayOk = false;
-    tournamentOk = false;
-    cityBtnChecked = false;
+    reset();
   } else if (!checkTermOfUse()) {
     alert("vous devez accepter les CGU avant d'envoyer le formulaire");
   } else {
