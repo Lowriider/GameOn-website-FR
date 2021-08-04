@@ -54,6 +54,9 @@ img {
 .fa-bars {
   color:#ff0000;
 }
+.topnav a.active {
+  display: none;
+}
 .topnav a:active {
   background-color: #ff0000;
   color: white;
