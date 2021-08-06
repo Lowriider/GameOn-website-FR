@@ -35,11 +35,12 @@ let lastNameOk = false;
 let emailOk = false;
 let birthdayOk = false;
 let tournamentOk = false;
-let cityBtnChecked = false;
+let cityBtnChecked;
 
 // Event listener // 
 closeForm.addEventListener('click', closeModal);
 submitFormOk.addEventListener('click', submitForm);
+cityData.addEventListener('mouseover', checkCity);
 
 
 // launch modal event // 
@@ -85,6 +86,25 @@ function errorMessages(field) {
       break;
   }
 }
+function errorMessagesReset(field) {
+  switch (field.getAttribute('id')) {
+    case 'first': // Si field ID = first then display this text. //
+      errorBlock[0].innerText = "";
+      break;
+    case 'last':
+      errorBlock[1].innerText = "";
+      break;
+    case 'email':
+      errorBlock[2].innerText = "";
+      break;
+    case 'birthdate':
+      errorBlock[3].innerText = "";
+      break;
+    case 'quantity':
+      errorBlock[4].innerText = "";
+      break;
+  }
+}
 
 // surligne le champs invalide // 
 function highlightField(field, erreur) {
@@ -93,24 +113,28 @@ function highlightField(field, erreur) {
     errorMessages(field);
   } else
     field.style.backgroundColor = "";
+    
+    // errorMessagesReset(field);
 }
 
 // check first name field // 
 function checkFirst(field) {
-  if (field.value.length <= 2 || !regLetters.test(field.value)) { // if this field length =
+  if (field.value.length < 2 || !regLetters.test(field.value)) { // if this field length =
     highlightField(field, true);
   } else {
     highlightField(field, false);
+    errorMessagesReset(field);
     firstNameOk = true;
   }
 }
 
 // check last name field //
 function checkLast(field) {
-  if (field.value.length <= 2 || !regLetters.test(field.value)) {
+  if (field.value.length < 2 || !regLetters.test(field.value)) {
     highlightField(field, true);
   } else {
     highlightField(field, false);
+    errorMessagesReset(field);
     lastNameOk = true;
   }
 }
@@ -121,26 +145,29 @@ function checkBirthdate(field) {
     highlightField(field, true);
   } else {
     highlightField(field, false);
+    errorMessagesReset(field);
     birthdayOk = true;
   }
 }
 
 // check email //
 function checkMail(field) {
-  if (field.value.length <= 2 || !regmail.test(field.value)) {
+  if (field.value.length < 2 || !regmail.test(field.value)) {
     highlightField(field, true);
   } else {
     highlightField(field, false);
+    errorMessagesReset(field);
     emailOk = true;
   }
 }
 
 // check le champ question //
 function checkTournament(field) {
-  if (field.value.length <= 1 || field.value > 100 || !regNumbers.test(field.value)) { // if length of field is sup or equal to 1 and 
+  if (field.value.length < 1 || field.value > 100 || !regNumbers.test(field.value)) { // if length of field is sup or equal to 1 and 
     highlightField(field, true);
   } else {
     highlightField(field, false);
+    errorMessagesReset(field);
     tournamentOk = true;
   }
 }
@@ -150,12 +177,19 @@ function checkCity() {
   for (let i = 0; i < cityBtn.length; i++) {
     if (cityBtn[i].checked) { /* check all the boxes and return true if box is checked */
       cityBtnChecked = true;
+      console.log()
     }
   }
   if (!cityBtnChecked) {
+    errorBlock[5].innerText = "Veuillez cocher une ville";
+    console.log(cityBtnChecked)
     return false
-  } else
+  } 
+  else {
+    errorBlock[5].innerText = "";
+    console.log(cityBtnChecked)
     return true; // if var = true then function must return true //
+  }
 }
 
 // check term of use //
@@ -170,8 +204,10 @@ function checkTermOfUse() {
 // check if fields are ok //
 
 function checkAllFields() {
-  if (firstNameOk && lastNameOk && emailOk && birthdayOk && tournamentOk && checkCity() && checkTermOfUse()) // if functions or var = true all fields are OK so function return true //
+  if (firstNameOk && lastNameOk && emailOk && birthdayOk && tournamentOk && checkCity() && checkTermOfUse()) { // if functions or var = true all fields are OK so function return true //
+    errorBlock[5].innerText = "";
     return true;
+  }
   else {
     if (!firstNameOk) {
       firstName.style.backgroundColor = "#fba";

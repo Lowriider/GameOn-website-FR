@@ -446,6 +446,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
 @media screen and (max-width: 800px) {
   
   .hero-section {
@@ -489,7 +490,6 @@ footer {
     color: white;
     border-radius: 15px;
   }
-  
 }
 
 @media screen and (min-width:850px) and (max-width:1100px) {
@@ -504,6 +504,10 @@ footer {
   }
 }
 @media screen and (max-width: 768px) {
+
+  .header-logo {
+    width: 70%;
+  }
   .topnav {
     overflow: hidden;
     margin: 50px 25px 50px 25px;
@@ -541,12 +545,9 @@ footer {
     float: right;
     display: block;
   }
-  .header-logo {
-    width: 200px;
-  }
   .header-logo img {
     margin-top: 5px;
-    width: 100%;
+    width: 110%;
   }
   .hero-content {
     min-width: unset;
@@ -559,7 +560,6 @@ footer {
     font-size: 70%;
   }
 } 
-
 
 @keyframes modalopen {
   from {
