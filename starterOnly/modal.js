@@ -177,17 +177,14 @@ function checkCity() {
   for (let i = 0; i < cityBtn.length; i++) {
     if (cityBtn[i].checked) { /* check all the boxes and return true if box is checked */
       cityBtnChecked = true;
-      console.log()
     }
   }
   if (!cityBtnChecked) {
     errorBlock[5].innerText = "Veuillez cocher une ville";
-    console.log(cityBtnChecked)
     return false
   } 
   else {
     errorBlock[5].innerText = "";
-    console.log(cityBtnChecked)
     return true; // if var = true then function must return true //
   }
 }
